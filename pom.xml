@@ -84,5 +84,27 @@
             </properties>
         </profile>
 
+        <!--
+        ###########
+        # Heroku Environment
+        ###########
+        -->
+        <profile>
+            <id>heroku</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>environment.type</name>
+                    <value>dev</value>
+                </property>
+            </activation>
+            <properties>
+                <database.driverClassName>org.postgresql.Driver</database.driverClassName>
+                <database.url>jdbc:postgresql://host:5432/database?sslmode=require</database.url>
+                <database.username></database.username>
+                <database.password></database.password>
+            </properties>
+        </profile>
+
     </profiles>
 </project>
