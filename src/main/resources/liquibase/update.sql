@@ -40,3 +40,16 @@ VALUES ('Люди Икс: Тёмный Феникс', 'Dark Phoenix', 'https://w
 
 INSERT INTO movies (title_ru, title_en, kinopoisk_link, imdb_link, image_url, release_date)
 VALUES ('Мой шпион', 'My Spy', 'https://www.kinopoisk.ru/film/1179073/', 'https://www.imdb.com/title/tt8242084', 'https://m.media-amazon.com/images/M/MV5BNTEzNjY2ODMzN15BMl5BanBnXkFtZTgwMzUzMTA4NzM@._V1_SY1000_CR0,0,674,1000_AL_.jpg', '2019-08-23');
+
+--changeset zmiter:added-users-table-2019-MAY-30-08-51
+--comment Creating users table if not created by jpa
+create table if not exists users (
+ id bigserial not null constraint users_pkey primary key,
+ email varchar(255) not null constraint unique_user_email unique,
+ email_verified boolean not null,
+ image_url varchar(255),
+ name varchar(255) not null,
+ password varchar(255),
+ provider varchar(255) not null,
+ provider_id varchar(255)
+);
