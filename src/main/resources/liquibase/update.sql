@@ -53,3 +53,11 @@ create table if not exists users (
  provider varchar(255) not null,
  provider_id varchar(255)
 );
+
+--changeset zmiter:added-table-for-watch-list-2019-MAY-30-09-33
+--comment Added table to track expected movies
+create table if not exists user_movie_watch_list (
+  user_id bigserial not null,
+  movie_id bigserial not null,
+  primary key (user_id, movie_id)
+);
